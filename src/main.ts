@@ -1,16 +1,15 @@
 import * as core from '@actions/core'
-import {wait} from './wait'
+import { context } from '@actions/github'
+import GHAPI from './api'
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
+    const token = core.getInput('token')
+    const api = new GHAPI(token)
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
+    const response = await api.getDockerImages(context.repo.owner)
 
-    core.setOutput('time', new Date().toTimeString())
+    core.setOutput('response', response)
   } catch (error) {
     core.setFailed(error.message)
   }
