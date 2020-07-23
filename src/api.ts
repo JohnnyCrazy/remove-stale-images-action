@@ -13,7 +13,7 @@ class GHAPI {
       'https://api.github.com/graphql',
       `{
           "query": "{
-            user(login: \"${login}\") {
+            user(login: \\"${login}\\") {
               registryPackagesForQuery(packageType: DOCKER, first: 100) {
                 edges {
                   node {
