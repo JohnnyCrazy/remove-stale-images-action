@@ -1369,6 +1369,7 @@ function run() {
             core.setOutput('response', response);
         }
         catch (error) {
+            core.debug(error);
             core.setFailed(error.message);
         }
     });
