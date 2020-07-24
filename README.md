@@ -1,7 +1,3 @@
-<p align="center">
-  <a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
-</p>
-
 # Remove Stale Images
 
 Small action which keeps your image count at a fixed number, removing all old ones. This allows for some space saving if you don't depend on old image tags.
