@@ -1,6 +1,9 @@
 name: 'Docker Stale Package Remover'
 description: 'Limit the amount of images in your github registry by keeping only the latest X images'
-author: 'Jonas Dellinger'
+author: 'JohnnyCrazy'
+branding:
+  color: blue
+  icon: archive
 inputs:
   token: # change this
     required: true
