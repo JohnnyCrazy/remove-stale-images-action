@@ -1,16 +1,16 @@
-name: "Your name here"
-description: "Provide a description here"
-author: "Your name or organization here"
+name: 'Docker Stale Package Remover'
+description: 'Limit the amount of images in your github registry by keeping only the latest X images'
+author: 'Jonas Dellinger'
 inputs:
   token: # change this
     required: true
-    description: "A github auth token."
+    description: 'A github auth token.'
   packages:
     required: true
-    description: "A comma seperated list of package names."
+    description: 'A comma seperated list of package names.'
   keep:
     required: true
-    description: "A number specifying how many images should be kept."
+    description: 'A number specifying how many images should be kept.'
 runs:
-  using: "node12"
-  main: "dist/index.js"
+  using: 'node12'
+  main: 'dist/index.js'
