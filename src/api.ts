@@ -1,40 +1,31 @@
-import axios, { AxiosResponse } from 'axios'
+import { GraphQLClient } from 'graphql-request'
+
+import packagesQuery, { PackagesResponse } from './queries/packages'
+import deletePackageMutation, { DeletePackageResponse } from './queries/remove_package'
 
 class GHAPI {
-  constructor(private token: string) {}
+  private readonly client: GraphQLClient
 
-  // curl -X POST \
-  // -H "Authorization: bearer <ACCESS_TOKEN>" \
-  // -H "Accept: application/vnd.github.packages-preview+json" \
-  // -d '{"query": "{user(login: \"<USERNAME>\") { registryPackagesForQuery(packageType: DOCKER, first: 100) { edges { node { name id versions(first: 100) { nodes {id} } } } } } }"}' \
-  // https://api.github.com/graphql
-  async getDockerImages(login: string): Promise<AxiosResponse> {
-    return axios.post(
-      'https://api.github.com/graphql',
-      `{
-          "query": "{
-            user(login: \\"${login}\\") {
-              registryPackagesForQuery(packageType: DOCKER, first: 100) {
-                edges {
-                  node {
-                    name
-                    id
-                    versions(first: 100) {
-                      nodes {id}
-                    }
-                  }
-                }
-              }
-            }
-          }"
-        }`,
-      {
-        headers: {
-          Accept: 'application/vnd.github.packages-preview+json',
-          Authorization: `bearer ${this.token}`
-        }
+  constructor(token: string) {
+    this.client = new GraphQLClient('https://api.github.com/graphql', {
+      headers: {
+        Accept: 'application/vnd.github.packages-preview+json',
+        Authorization: `Bearer ${token}`
       }
-    )
+    })
+  }
+
+  async getDockerImages(login: string, names: string[]): Promise<PackagesResponse> {
+    return this.client.request<PackagesResponse>(packagesQuery, {
+      login,
+      names
+    })
+  }
+
+  async deletePackage(id: string): Promise<DeletePackageResponse> {
+    return this.client.request<DeletePackageResponse>(deletePackageMutation, {
+      id
+    })
   }
 }
 export default GHAPI

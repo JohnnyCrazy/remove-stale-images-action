@@ -1,11 +1,16 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: "Your name here"
+description: "Provide a description here"
+author: "Your name or organization here"
 inputs:
   token: # change this
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: "A github auth token."
+  packages:
+    required: true
+    description: "A comma seperated list of package names."
+  keep:
+    required: true
+    description: "A number specifying how many images should be kept."
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"
