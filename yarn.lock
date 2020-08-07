@@ -2096,10 +2096,10 @@ graceful-fs@^4.1.2, graceful-fs@^4.2.4:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
 
-graphql-request@2.1.0-next.1:
-  version "2.1.0-next.1"
-  resolved "https://registry.yarnpkg.com/graphql-request/-/graphql-request-2.1.0-next.1.tgz#d0771d814ebcb39ea67208da12e301f3f5d6a80d"
-  integrity sha512-9Qr+z4FCzxwFrnG9BE366v9KcgRXLv2bmFkj3RHfSQNDgPHCUM2mA83bwjhgxg4jig/F8X/pcceOZPwRkMleKQ==
+graphql-request@2.1.0-next.3:
+  version "2.1.0-next.3"
+  resolved "https://registry.yarnpkg.com/graphql-request/-/graphql-request-2.1.0-next.3.tgz#62a5b3f784e72e950fa6776a4d5725eec5f5fed9"
+  integrity sha512-eXBvuvJLisrEjv6Roq7cp+X9fjW7pTSTF4M7lFlOtADQoisLbkOb5WXeZYbD4rbHJbOU4U7/JRxG73e16Rz6YQ==
   dependencies:
     cross-fetch "^3.0.4"
 
