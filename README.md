@@ -1,5 +1,7 @@
 # Remove Stale Images
 
+> ⚠ This action is only compatible with the deprecated `docker.pkg.github.com` registry. The new registry `ghcr.io` does not yet have a specific API (only docker v2 AFAIK) and does not trigger `registry_package`, so it can't be used with this action.
+
 Small action which keeps your image count at a fixed number, removing all old ones. This allows for some space saving if you don't depend on old image tags.
 
 # Example Usage
